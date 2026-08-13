@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>VENYX | Yazar Paneli</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    min-height: 100vh;
+
+    background:
+    radial-gradient(
+        circle at 50% 10%,
+        rgba(160,20,60,.3),
+        transparent 50%
+    ),
+
+    linear-gradient(
+        135deg,
+        #0d0004,
+        #35000d,
+        #120005
+    );
+
+    color: white;
+
+    font-family:
+    "Cormorant Garamond",
+    serif;
+
+    padding: 35px 20px;
+}
+
+.container {
+
+    width: 100%;
+
+    max-width: 1000px;
+
+    margin: auto;
+}
+
+
+/* ÜST */
+
+.top {
+
+    display: flex;
+
+    justify-content:
+    space-between;
+
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+.top h1 {
+
+    font-size: 42px;
+
+    font-weight: 500;
+
+    color: #fff0f2;
+}
+
+.back {
+
+    color: #e8c6cc;
+
+    text-decoration: none;
+
+    font-family:
+    "Montserrat",
+    sans-serif;
+
+    font-size: 12px;
+}
+
+.back:hover {
+
+    color: #ff8da5;
+}
+
+
+/* EDİTÖR */
+
+.editor-box {
+
+    background:
+    rgba(45,0,13,.75);
+
+    border:
+    1px solid
+    rgba(255,110,140,.3);
+
+    border-radius: 25px;
+
+    padding: 35px;
+
+    backdrop-filter:
+    blur(15px);
+
+    box-shadow:
+    0 0 50px
+    rgba(120,10,40,.25);
+
+    margin-bottom: 35px;
+}
+
+
+label {
+
+    display: block;
+
+    font-family:
+    "Montserrat",
+    sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    color: #d9aeb7;
+
+    margin-bottom: 8px;
+}
+
+
+input,
+textarea {
+
+    width: 100%;
+
+    background:
+    rgba(255,255,255,.04);
+
+    border:
+    1px solid
+    rgba(255,130,150,.3);
+
+    border-radius: 12px;
+
+    color: white;
+
+    outline: none;
+
+    font-family:
+    "Montserrat",
+    sans-serif;
+
+    padding: 15px;
+
+    margin-bottom: 22px;
+}
+
+
+input {
+
+    font-size: 15px;
+}
+
+
+textarea {
+
+    min-height: 400px;
+
+    resize: vertical;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+input:focus,
+textarea:focus {
+
+    border-color:
+    #ff7898;
+
+    box-shadow:
+    0 0 15px
+    rgba(255,80,110,.15);
+}
+
+
+/* BUTONLAR */
+
+.buttons {
+
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+
+button {
+
+    border-radius: 30px;
+
+    padding: 14px 20px;
+
+    cursor: pointer;
+
+    font-family:
+    "Montserrat",
+    sans-serif;
+
+    font-size: 11px;
+
+    transition: .3s;
+}
+
+
+.save {
+
+    flex: 1;
+
+    background:
+    rgba(150,15,50,.2);
+
+    border:
+    1px solid
+    #ff819b;
+
+    color: white;
+}
+
+
+.publish {
+
+    flex: 1;
+
+    background:
+    #7d2142;
+
+    border:
+    1px solid
+    #ff819b;
+
+    color: white;
+}
+
+
+.clear {
+
+    background:
+    rgba(255,255,255,.04);
+
+    border:
+    1px solid
+    rgba(255,255,255,.2);
+
+    color: #d8bec4;
+}
+
+
+button:hover {
+
+    transform:
+    translateY(-2px);
+
+    box-shadow:
+    0 0 20px
+    rgba(255,70,100,.2);
+}
+
+
+.status {
+
+    margin-top: 18px;
+
+    text-align: center;
+
+    font-family:
+    "Montserrat",
+    sans-serif;
+
+    font-size: 11px;
+
+    color: #cfa2ac;
+}
+
+
+/* BÖLÜMLER */
+
+.manage-box {
+
+    background:
+    rgba(45,0,13,.65);
+
+    border:
+    1px solid
+    rgba(255,110,140,.25);
+
+    border-radius: 25px;
+
+    padding: 30px;
+
+    backdrop-filter:
+    blur(15px);
+}
+
+
+.manage-box h2 {
+
+    font-size: 32px;
+
+    font-weight: 500;
+
+    color: #fff0f2;
+
+    margin-bottom: 8px;
+}
+
+
+.manage-subtitle {
+
+    font-family:
+    "Montserrat",
+    sans-serif;
+
+    font-size: 11px;
+
+    color: #b9959d;
+
+    margin-bottom: 22px;
+}
+
+
+.chapter-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.chapter-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 17px;
+
+    border-radius: 15px;
+
+    background:
+    rgba(255,255,255,.035);
+
+    border:
+    1px solid
+    rgba(255,110,140,.15);
+}
+
+
+.chapter-info {
+
+    flex: 1;
+}
+
+
+.chapter-number {
+
+    font-family:
+    "Montserrat",
+    sans-serif;
+
+    font-size: 10px;
+
+    color: #a97d87;
+
+    letter-spacing: 1px;
+}
+
+
+.chapter-title {
+
+    font-size: 21px;
+
+    color: #f3dce0;
+
+    margin-top: 3px;
+}
+
+
+.chapter-buttons {
+
+    display: flex;
+
+    gap: 7px;
+}
+
+
+.edit-button {
+
+    background:
+    rgba(150,15,50,.2);
+
+    border:
+    1px solid
+    rgba(255,130,150,.4);
+
+    color: #ffdce2;
+
+    padding:
+    9px 13px;
+}
+
+
+.delete-button {
+
+    background:
+    rgba(100,0,15,.25);
+
+    border:
+    1px solid
+    rgba(255,80,100,.35);
+
+    color: #ff9aac;
+
+    padding:
+    9px 13px;
+}
+
+
+.empty {
+
+    text-align: center;
+
+    padding: 30px;
+
+    color: #9e747e;
+
+    font-family:
+    "Montserrat",
+    sans-serif;
+
+    font-size: 11px;
+}
+
+
+/* MOBİL */
+
+@media(max-width:650px) {
+
+    body {
+
+        padding:
+        25px 15px;
+    }
+
+    .editor-box,
+    .manage-box {
+
+        padding: 23px 18px;
+    }
+
+    .top h1 {
+
+        font-size: 32px;
+    }
+
+    .chapter-item {
+
+        align-items:
+        flex-start;
+
+        flex-direction:
+        column;
+    }
+
+    .chapter-buttons {
+
+        width: 100%;
+    }
+
+    .chapter-buttons button {
+
+        flex: 1;
+    }
+
+    .buttons {
+
+        flex-direction:
+        column;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<!-- ÜST -->
+
+<div class="top">
+
+<h1>
+Yazar Paneli
+</h1>
+
+<a
+href="book.html"
+class="back">
+
+← Kitabıma Dön
+
+</a>
+
+</div>
+
+
+<!-- ======================
+     BÖLÜM EDİTÖRÜ
+====================== -->
+
+<div class="editor-box">
+
+
+<label>
+BÖLÜM NUMARASI
+</label>
+
+<input
+type="number"
+id="chapterNumber"
+min="1"
+placeholder="Örn. 1">
+
+
+<label>
+BÖLÜM BAŞLIĞI
+</label>
+
+<input
+type="text"
+id="chapterTitle"
+placeholder="Bölüm başlığı...">
+
+
+<label>
+BÖLÜM METNİ
+</label>
+
+<textarea
+id="chapterText"
+placeholder="Bölümünü buraya yaz..."></textarea>
+
+
+<div class="buttons">
+
+<button
+class="save"
+onclick="saveDraft()">
+
+TASLAK OLARAK KAYDET
+
+</button>
+
+
+<button
+class="publish"
+onclick="publishChapter()">
+
+YAYINLA ✦
+
+</button>
+
+
+<button
+class="clear"
+onclick="clearEditor()">
+
+TEMİZLE
+
+</button>
+
+</div>
+
+
+<div
+class="status"
+id="status">
+
+Yeni bölüm oluştur.
+
+</div>
+
+
+</div>
+
+
+<!-- ======================
+     BÖLÜM YÖNETİMİ
+====================== -->
+
+<div class="manage-box">
+
+
+<h2>
+Bölümlerimi Yönet
+</h2>
+
+
+<p class="manage-subtitle">
+
+Yayınladığın veya taslak olarak kaydettiğin bölümler
+
+</p>
+
+
+<div
+id="chapterList"
+class="chapter-list">
+</div>
+
+
+<div
+id="empty"
+class="empty">
+
+Henüz bölüm bulunmuyor.
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<script>
+
+
+/* ==========================
+   GİRİŞ KONTROLÜ
+========================== */
+
+if (
+    localStorage.getItem(
+        "venyx_author"
+    ) !== "true"
+) {
+
+    window.location.href =
+        "login.html";
+
+}
+
+
+/* ==========================
+   ELEMENTLER
+========================== */
+
+const numberInput =
+    document.getElementById(
+        "chapterNumber"
+    );
+
+const titleInput =
+    document.getElementById(
+        "chapterTitle"
+    );
+
+const textInput =
+    document.getElementById(
+        "chapterText"
+    );
+
+const status =
+    document.getElementById(
+        "status"
+    );
+
+
+/* ==========================
+   TASLAK
+========================== */
+
+function saveDraft() {
+
+    saveChapter(false);
+
+}
+
+
+/* ==========================
+   YAYINLA
+========================== */
+
+function publishChapter() {
+
+    saveChapter(true);
+
+}
+
+
+/* ==========================
+   KAYDET
+========================== */
+
+function saveChapter(
+    published
+) {
+
+    const number =
+        numberInput.value.trim();
+
+    const title =
+        titleInput.value.trim();
+
+    const text =
+        textInput.value.trim();
+
+
+    if (
+        !number ||
+        !title ||
+        !text
+    ) {
+
+        alert(
+            "Lütfen bölüm numarası, başlık ve metni doldur."
+        );
+
+        return;
+
+    }
+
+
+    const chapter = {
+
+        number: number,
+
+        title: title,
+
+        text: text,
+
+        published: published
+
+    };
+
+
+    localStorage.setItem(
+
+        "venyx_chapter_" +
+        number,
+
+        JSON.stringify(
+            chapter
+        )
+
+    );
+
+
+    status.textContent =
+        published
+        ? "✓ Bölüm yayınlandı."
+        : "✓ Taslak kaydedildi.";
+
+
+    loadChapters();
+
+}
+
+
+/* ==========================
+   BÖLÜMLERİ YÜKLE
+========================== */
+
+function loadChapters() {
+
+    const list =
+        document.getElementById(
+            "chapterList"
+        );
+
+    const empty =
+        document.getElementById(
+            "empty"
+        );
+
+
+    list.innerHTML = "";
+
+
+    let chapters = [];
+
+
+    for (
+        let i = 1;
+        i <= 100;
+        i++
+    ) {
+
+        const data =
+            localStorage.getItem(
+                "venyx_chapter_" +
+                i
+            );
+
+
+        if (!data) {
+
+            continue;
+
+        }
+
+
+        try {
+
+            const chapter =
+                JSON.parse(data);
+
+            chapters.push(
+                chapter
+            );
+
+        }
+
+        catch {
+
+            console.log(
+                "Bölüm okunamadı:",
+                i
+            );
+
+        }
+
+    }
+
+
+    chapters.sort(
+        function(a,b) {
+
+            return Number(a.number)
+                -
+                Number(b.number);
+
+        }
+    );
+
+
+    if (
+        chapters.length === 0
+    ) {
+
+        empty.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    empty.style.display =
+        "none";
+
+
+    chapters.forEach(
+        function(chapter) {
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+            item.className =
+                "chapter-item";
+
+
+            const info =
+                document.createElement(
+                    "div"
+                );
+
+            info.className =
+                "chapter-info";
+
+
+            const number =
+                document.createElement(
+                    "div"
+                );
+
+            number.className =
+                "chapter-number";
+
+
+            number.textContent =
+                "BÖLÜM " +
+                String(
+                    chapter.number
+                ).padStart(2,"0");
+
+
+            const title =
+                document.createElement(
+                    "div"
+                );
+
+            title.className =
+                "chapter-title";
+
+
+            title.textContent =
+                chapter.title;
+
+
+            const state =
+                document.createElement(
+                    "div"
+                );
+
+
+            state.style.fontFamily =
+                "Montserrat";
+
+            state.style.fontSize =
+                "10px";
+
+            state.style.color =
+                chapter.published
+                ? "#c78e9b"
+                : "#8d7178";
+
+
+            state.textContent =
+                chapter.published
+                ? "YAYINDA"
+                : "TASLAK";
+
+
+            info.appendChild(
+                number
+            );
+
+            info.appendChild(
+                title
+            );
+
+            info.appendChild(
+                state
+            );
+
+
+            const buttons =
+                document.createElement(
+                    "div"
+                );
+
+            buttons.className =
+                "chapter-buttons";
+
+
+            /* DÜZENLE */
+
+            const edit =
+                document.createElement(
+                    "button"
+                );
+
+            edit.className =
+                "edit-button";
+
+            edit.textContent =
+                "✏️ Düzenle";
+
+
+            edit.onclick =
+            function() {
+
+                editChapter(
+                    chapter.number
+                );
+
+            };
+
+
+            /* SİL */
+
+            const remove =
+                document.createElement(
+                    "button"
+                );
+
+            remove.className =
+                "delete-button";
+
+            remove.textContent =
+                "🗑️ Sil";
+
+
+            remove.onclick =
+            function() {
+
+                deleteChapter(
+                    chapter.number,
+                    chapter.title
+                );
+
+            };
+
+
+            buttons.appendChild(
+                edit
+            );
+
+            buttons.appendChild(
+                remove
+            );
+
+
+            item.appendChild(
+                info
+            );
+
+            item.appendChild(
+                buttons
+            );
+
+
+            list.appendChild(
+                item
+            );
+
+        }
+    );
+
+}
+
+
+/* ==========================
+   DÜZENLE
+========================== */
+
+function editChapter(
+    number
+) {
+
+    const data =
+        localStorage.getItem(
+            "venyx_chapter_" +
+            number
+        );
+
+
+    if (!data) {
+
+        return;
+
+    }
+
+
+    const chapter =
+        JSON.parse(data);
+
+
+    numberInput.value =
+        chapter.number;
+
+    titleInput.value =
+        chapter.title;
+
+    textInput.value =
+        chapter.text;
+
+
+    status.textContent =
+        "✏️ Bölüm düzenleniyor...";
+
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+}
+
+
+/* ==========================
+   SİL
+========================== */
+
+function deleteChapter(
+    number,
+    title
+) {
+
+
+    const answer =
+        confirm(
+
+            "⚠️ BÖLÜMÜ SİLMEK ÜZERESİN\n\n"
+            +
+            "Bölüm "
+            + number
+            + " — "
+            + title
+            + "\n\n"
+            +
+            "Bu işlem geri alınamaz.\n\n"
+            +
+            "Silmek istediğine emin misin?"
+
+        );
+
+
+    if (!answer) {
+
+        return;
+
+    }
+
+
+    localStorage.removeItem(
+
+        "venyx_chapter_" +
+        number
+
+    );
+
+
+    /* İLGİLİ BEĞENİLERİ SİL */
+
+    localStorage.removeItem(
+
+        "venyx_likes_" +
+        number
+
+    );
+
+
+    localStorage.removeItem(
+
+        "venyx_liked_" +
+        number
+
+    );
+
+
+    /* OKUNMA SAYISINI SİL */
+
+    localStorage.removeItem(
+
+        "venyx_views_" +
+        number
+
+    );
+
+
+    /* YORUMLARI SİL */
+
+    localStorage.removeItem(
+
+        "venyx_comments_" +
+        number
+
+    );
+
+
+    status.textContent =
+        "✓ Bölüm silindi.";
+
+
+    clearEditor();
+
+    loadChapters();
+
+}
+
+
+/* ==========================
+   TEMİZLE
+========================== */
+
+function clearEditor() {
+
+    numberInput.value = "";
+
+    titleInput.value = "";
+
+    textInput.value = "";
+
+    status.textContent =
+        "Yeni bölüm oluştur.";
+
+}
+
+
+/* BAŞLANGIÇ */
+
+loadChapters();
+
+</script>
+
+
+</body>
+
+</html>

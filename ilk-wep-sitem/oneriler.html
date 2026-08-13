@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>VENYX | Öneri Merkezi</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    min-height: 100vh;
+
+    background:
+
+    radial-gradient(
+        circle at 50% 10%,
+        rgba(160,20,60,.35),
+        transparent 50%
+    ),
+
+    radial-gradient(
+        circle at 90% 90%,
+        rgba(100,10,40,.20),
+        transparent 45%
+    ),
+
+    linear-gradient(
+        135deg,
+        #0d0004,
+        #35000d,
+        #120005
+    );
+
+    color: white;
+
+    font-family:
+    "Cormorant Garamond",
+    serif;
+
+    padding: 35px 20px;
+}
+
+
+.container {
+
+    width: 100%;
+
+    max-width: 720px;
+
+    margin: auto;
+}
+
+
+/* GERİ */
+
+.back {
+
+    display: inline-block;
+
+    margin-bottom: 25px;
+
+    color: #e8c6cc;
+
+    text-decoration: none;
+
+    font-family:
+    "Montserrat",
+    sans-serif;
+
+    font-size: 12px;
+}
+
+.back:hover {
+
+    color: #ff8da5;
+}
+
+
+/* ANA KUTU */
+
+.box {
+
+    background:
+    rgba(45,0,13,.78);
+
+    border:
+    1px solid
+    rgba(255,110,140,.3);
+
+    border-radius: 30px;
+
+    padding: 40px;
+
+    backdrop-filter:
+    blur(15px);
+
+    box-shadow:
+    0 0 50px
+    rgba(120,10,40,.25);
+}
+
+
+/* BAŞLIK */
+
+.icon {
+
+    font-size: 42px;
+
+    margin-bottom: 10px;
+}
+
+
+h1 {
+
+    font-size: 48px;
+
+    font-weight: 500;
+
+    color: #fff0f2;
+
+    margin-bottom: 8px;
+}
+
+
+.subtitle {
+
+    color: #c9a4ac;
+
+    font-family:
+    "Montserrat",
+    sans-serif;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    margin-bottom: 32px;
+}
+
+
+/* ALANLAR */
+
+label {
+
+    display: block;
+
+    color: #d9aeb7;
+
+    font-family:
+    "Montserrat",
+    sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 8px;
+}
+
+
+input,
+select,
+textarea {
+
+    width: 100%;
+
+    padding: 15px;
+
+    margin-bottom: 22px;
+
+    border-radius: 12px;
+
+    border:
+    1px solid
+    rgba(255,130,150,.3);
+
+    background:
+    rgba(255,255,255,.04);
+
+    color: white;
+
+    outline: none;
+
+    font-family:
+    "Montserrat",
+    sans-serif;
+
+    font-size: 13px;
+}
+
+
+input:focus,
+select:focus,
+textarea:focus {
+
+    border-color:
+    #ff7898;
+
+    box-shadow:
+    0 0 15px
+    rgba(255,80,110,.15);
+}
+
+
+select {
+
+    cursor: pointer;
+}
+
+
+select option {
+
+    background: #35000d;
+
+    color: white;
+}
+
+
+textarea {
+
+    min-height: 220px;
+
+    resize: vertical;
+
+    line-height: 1.7;
+}
+
+
+/* GÖRSEL */
+
+.file-box {
+
+    margin-bottom: 25px;
+
+    padding: 18px;
+
+    border:
+    1px dashed
+    rgba(255,130,150,.35);
+
+    border-radius: 15px;
+
+    background:
+    rgba(255,255,255,.025);
+}
+
+
+.file-box input {
+
+    margin: 0;
+
+    padding: 5px;
+
+    border: none;
+
+    box-shadow: none;
+}
+
+
+/* BUTON */
+
+button {
+
+    width: 100%;
+
+    padding: 16px;
+
+    border-radius: 30px;
+
+    border:
+    1px solid
+    #ff819b;
+
+    background:
+    #7d2142;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-family:
+    "Montserrat",
+    sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    transition: .3s;
+}
+
+
+button:hover {
+
+    background:
+    #a7355a;
+
+    transform:
+    translateY(-2px);
+
+    box-shadow:
+    0 0 25px
+    rgba(255,70,100,.25);
+}
+
+
+/* GİZLİ TEŞEKKÜR */
+
+.success {
+
+    display: none;
+
+    text-align: center;
+
+    padding: 35px 10px;
+}
+
+
+.success-icon {
+
+    font-size: 55px;
+
+    margin-bottom: 15px;
+}
+
+
+.success h2 {
+
+    font-size: 36px;
+
+    font-weight: 500;
+
+    color: #fff0f2;
+
+    margin-bottom: 12px;
+}
+
+
+.success p {
+
+    color: #c9a4ac;
+
+    font-family:
+    "Montserrat",
+    sans-serif;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+.warning {
+
+    color: #a9828b;
+
+    font-family:
+    "Montserrat",
+    sans-serif;
+
+    font-size: 10px;
+
+    line-height: 1.6;
+
+    margin-top: 18px;
+
+    text-align: center;
+}
+
+
+/* MOBİL */
+
+@media(max-width:600px) {
+
+    body {
+
+        padding:
+        20px 14px;
+    }
+
+    .box {
+
+        padding:
+        28px 20px;
+    }
+
+    h1 {
+
+        font-size: 38px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<a
+href="index.html"
+class="back">
+
+← Ana Sayfaya Dön
+
+</a>
+
+
+<div class="box">
+
+
+<div id="formArea">
+
+
+<div class="icon">
+💌
+</div>
+
+
+<h1>
+Öneri Merkezi
+</h1>
+
+
+<p class="subtitle">
+
+Aklında bir fikir mi var?
+
+Hikâye, tasarım, site veya başka
+bir konuda önerini bizimle paylaş.
+
+İsmini yazmak zorunda değilsin.
+
+</p>
+
+
+<form id="suggestionForm">
+
+
+<label for="name">
+İSİM — İSTEĞE BAĞLI
+</label>
+
+<input
+type="text"
+id="name"
+placeholder="İstersen ismini yaz...">
+
+
+<label for="category">
+ÖNERİ TÜRÜ
+</label>
+
+<select id="category">
+
+<option value="">
+Bir kategori seç...
+</option>
+
+<option value="Hikâye">
+📖 Hikâye
+</option>
+
+<option value="Tasarım">
+🎨 Tasarım
+</option>
+
+<option value="Site fikri">
+💡 Site fikri
+</option>
+
+<option value="Görsel">
+🖼️ Görsel
+</option>
+
+<option value="Diğer">
+✦ Diğer
+</option>
+
+</select>
+
+
+<label for="message">
+ÖNERİN
+</label>
+
+<textarea
+id="message"
+placeholder="Fikrini, önerini veya düşünceni buraya yaz..."></textarea>
+
+
+<label>
+GÖRSEL — İSTEĞE BAĞLI
+</label>
+
+
+<div class="file-box">
+
+<input
+type="file"
+id="image"
+accept="image/*">
+
+</div>
+
+
+<button
+type="submit">
+
+GÖNDER ✦
+
+</button>
+
+
+<p class="warning">
+
+İsminizi paylaşmak zorunda değilsiniz.
+Gönderdiğiniz öneriler diğer ziyaretçilere gösterilmez.
+
+</p>
+
+
+</form>
+
+</div>
+
+
+<!-- BAŞARILI -->
+
+<div
+id="success"
+class="success">
+
+<div class="success-icon">
+✦
+</div>
+
+
+<h2>
+Önerin Alındı
+</h2>
+
+
+<p>
+
+Fikrini bizimle paylaştığın için teşekkürler.
+
+Önerin başarıyla gönderildi.
+
+</p>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<script>
+
+
+const form =
+document.getElementById(
+    "suggestionForm"
+);
+
+
+form.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        const name =
+            document.getElementById(
+                "name"
+            ).value.trim();
+
+
+        const category =
+            document.getElementById(
+                "category"
+            ).value;
+
+
+        const message =
+            document.getElementById(
+                "message"
+            ).value.trim();
+
+
+        const image =
+            document.getElementById(
+                "image"
+            ).files[0];
+
+
+        if (!category) {
+
+            alert(
+                "Lütfen öneri türünü seç."
+            );
+
+            return;
+        }
+
+
+        if (!message) {
+
+            alert(
+                "Lütfen önerini yaz."
+            );
+
+            return;
+        }
+
+
+        /*
+            ŞİMDİLİK FORM TESTİ
+
+            Gerçek gönderim sistemi
+            sonraki aşamada kurulacak.
+        */
+
+
+        console.log({
+            name: name,
+            category: category,
+            message: message,
+            image: image
+                ? image.name
+                : null
+        });
+
+
+        document.getElementById(
+            "formArea"
+        ).style.display = "none";
+
+
+        document.getElementById(
+            "success"
+        ).style.display = "block";
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

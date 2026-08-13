@@ -1,0 +1,706 @@
+```html
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VENYX | Admin Öneriler</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 40px 20px;
+    color: white;
+    font-family: "Cormorant Garamond", serif;
+
+    background:
+        radial-gradient(circle at 50% 10%, rgba(150,20,60,.30), transparent 45%),
+        linear-gradient(135deg, #100004, #39000e, #160005);
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* GİRİŞ */
+
+.login-box {
+    max-width: 430px;
+    margin: 100px auto;
+    padding: 45px 35px;
+
+    text-align: center;
+
+    background: rgba(45,0,13,.85);
+    border: 1px solid rgba(255,110,140,.35);
+    border-radius: 25px;
+
+    box-shadow: 0 0 50px rgba(120,10,40,.3);
+}
+
+.login-box h1 {
+    font-size: 45px;
+    color: #f5c1ce;
+    margin-bottom: 8px;
+}
+
+.login-box p {
+    font-family: "Montserrat", sans-serif;
+    color: #b9959d;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+
+    background: rgba(255,255,255,.05);
+    border: 1px solid #6d1b39;
+    border-radius: 12px;
+
+    color: white;
+    outline: none;
+
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+button {
+    border: 1px solid #ff819b;
+    border-radius: 30px;
+
+    background: #7d2142;
+    color: white;
+
+    padding: 13px 25px;
+
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+
+    transition: .3s;
+}
+
+button:hover {
+    background: #a7355a;
+    transform: translateY(-2px);
+}
+
+.login-error {
+    display: none;
+    margin-top: 15px;
+
+    color: #ff8fa8;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+}
+
+/* PANEL */
+
+#adminPanel {
+    display: none;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 48px;
+    color: #fff0f2;
+}
+
+.header p {
+    margin-top: 5px;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    color: #c59da6;
+}
+
+.logout {
+    background: transparent;
+    border-color: rgba(255,130,150,.5);
+}
+
+.logout:hover {
+    background: rgba(180,20,60,.25);
+}
+
+/* ÖNERİLER */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.stat {
+    padding: 20px;
+
+    text-align: center;
+
+    background: rgba(45,0,13,.65);
+    border: 1px solid rgba(255,110,140,.22);
+    border-radius: 18px;
+}
+
+.stat strong {
+    display: block;
+
+    font-size: 30px;
+    color: #ff9bad;
+}
+
+.stat span {
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    color: #c59da6;
+}
+
+.suggestion {
+    padding: 25px;
+    margin-bottom: 15px;
+
+    background: rgba(45,0,13,.70);
+    border: 1px solid rgba(255,110,140,.22);
+    border-radius: 20px;
+
+    transition: .3s;
+}
+
+.suggestion.unread {
+    border-color: rgba(255,130,150,.65);
+    box-shadow: 0 0 20px rgba(255,60,100,.08);
+}
+
+.suggestion-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.suggestion h3 {
+    font-size: 25px;
+    color: #fff0f2;
+}
+
+.date {
+    font-family: "Montserrat", sans-serif;
+    font-size: 10px;
+    color: #a97883;
+}
+
+.message {
+    margin-top: 15px;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+
+    color: #dfbec4;
+    white-space: pre-wrap;
+}
+
+.image-preview {
+    max-width: 300px;
+    max-height: 300px;
+
+    margin-top: 20px;
+
+    border-radius: 14px;
+    border: 1px solid rgba(255,120,145,.3);
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.read-btn {
+    background: rgba(120,15,45,.35);
+}
+
+.delete-btn {
+    background: rgba(80,0,15,.4);
+    border-color: rgba(255,80,100,.45);
+}
+
+.empty {
+    padding: 60px 20px;
+
+    text-align: center;
+
+    color: #b9959d;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+
+    background: rgba(45,0,13,.5);
+    border-radius: 20px;
+}
+
+@media(max-width:700px) {
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .header h1 {
+        font-size: 38px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .suggestion-top {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- GİRİŞ -->
+
+    <div class="login-box" id="loginBox">
+
+        <h1>VENYX</h1>
+
+        <p>
+            Öneriler Yönetim Paneli
+        </p>
+
+        <input
+            type="password"
+            id="adminPassword"
+            placeholder="Admin şifresi"
+            autocomplete="off"
+        >
+
+        <button onclick="adminLogin()">
+            GİRİŞ YAP ✦
+        </button>
+
+        <div class="login-error" id="loginError">
+            Şifre yanlış.
+        </div>
+
+    </div>
+
+
+    <!-- ADMIN PANELİ -->
+
+    <div id="adminPanel">
+
+        <div class="header">
+
+            <div>
+                <h1>Öneriler</h1>
+
+                <p>
+                    VENYX ziyaretçilerinden gelen mesajlar
+                </p>
+            </div>
+
+            <button
+                class="logout"
+                onclick="logout()"
+            >
+                ÇIKIŞ YAP
+            </button>
+
+        </div>
+
+
+        <div class="stats">
+
+            <div class="stat">
+                <strong id="totalCount">0</strong>
+                <span>TOPLAM</span>
+            </div>
+
+            <div class="stat">
+                <strong id="unreadCount">0</strong>
+                <span>OKUNMAMIŞ</span>
+            </div>
+
+            <div class="stat">
+                <strong id="readCount">0</strong>
+                <span>OKUNMUŞ</span>
+            </div>
+
+        </div>
+
+
+        <div id="suggestionsList"></div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   ADMIN GİRİŞİ
+========================= */
+
+const ADMIN_PASSWORD = "Dilara338";
+
+function adminLogin() {
+
+    const password =
+        document.getElementById("adminPassword").value;
+
+    const error =
+        document.getElementById("loginError");
+
+    if (password === ADMIN_PASSWORD) {
+
+        sessionStorage.setItem(
+            "venyx_admin",
+            "true"
+        );
+
+        showPanel();
+
+    } else {
+
+        error.style.display = "block";
+
+        document.getElementById(
+            "adminPassword"
+        ).value = "";
+
+    }
+}
+
+
+/* ENTER */
+
+document
+.getElementById("adminPassword")
+.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+        adminLogin();
+    }
+
+});
+
+
+/* =========================
+   PANELİ GÖSTER
+========================= */
+
+function showPanel() {
+
+    document.getElementById(
+        "loginBox"
+    ).style.display = "none";
+
+    document.getElementById(
+        "adminPanel"
+    ).style.display = "block";
+
+    loadSuggestions();
+}
+
+
+/* =========================
+   ÇIKIŞ
+========================= */
+
+function logout() {
+
+    sessionStorage.removeItem(
+        "venyx_admin"
+    );
+
+    location.reload();
+
+}
+
+
+/* =========================
+   ÖNERİLERİ YÜKLE
+========================= */
+
+function loadSuggestions() {
+
+    const list =
+        document.getElementById(
+            "suggestionsList"
+        );
+
+    list.innerHTML = "";
+
+    let suggestions =
+        JSON.parse(
+            localStorage.getItem(
+                "venyx_suggestions"
+            ) || "[]"
+        );
+
+
+    document.getElementById(
+        "totalCount"
+    ).textContent = suggestions.length;
+
+
+    const unread =
+        suggestions.filter(
+            item => !item.read
+        ).length;
+
+
+    document.getElementById(
+        "unreadCount"
+    ).textContent = unread;
+
+
+    document.getElementById(
+        "readCount"
+    ).textContent =
+        suggestions.length - unread;
+
+
+    if (suggestions.length === 0) {
+
+        list.innerHTML = `
+            <div class="empty">
+                Henüz gelen bir öneri yok. ✦
+            </div>
+        `;
+
+        return;
+    }
+
+
+    suggestions
+        .slice()
+        .reverse()
+        .forEach((suggestion, index) => {
+
+            const realIndex =
+                suggestions.length - 1 - index;
+
+            const card =
+                document.createElement("div");
+
+            card.className =
+                "suggestion " +
+                (!suggestion.read
+                    ? "unread"
+                    : "");
+
+
+            const title =
+                suggestion.title ||
+                "Başlıksız öneri";
+
+
+            const message =
+                suggestion.message ||
+                suggestion.text ||
+                "Mesaj bulunamadı.";
+
+
+            const date =
+                suggestion.date ||
+                suggestion.createdAt ||
+                "";
+
+
+            let imageHTML = "";
+
+            if (suggestion.image) {
+
+                imageHTML = `
+                    <img
+                        class="image-preview"
+                        src="${suggestion.image}"
+                        alt="Öneri görseli"
+                    >
+                `;
+
+            }
+
+
+            card.innerHTML = `
+
+                <div class="suggestion-top">
+
+                    <h3>
+                        ${escapeHTML(title)}
+                    </h3>
+
+                    <span class="date">
+                        ${escapeHTML(String(date))}
+                    </span>
+
+                </div>
+
+                <div class="message">
+                    ${escapeHTML(message)}
+                </div>
+
+                ${imageHTML}
+
+                <div class="actions">
+
+                    <button
+                        class="read-btn"
+                        onclick="toggleRead(${realIndex})"
+                    >
+                        ${
+                            suggestion.read
+                            ? "OKUNMADI YAP"
+                            : "OKUNDU YAP"
+                        }
+                    </button>
+
+                    <button
+                        class="delete-btn"
+                        onclick="deleteSuggestion(${realIndex})"
+                    >
+                        SİL
+                    </button>
+
+                </div>
+
+            `;
+
+
+            list.appendChild(card);
+
+        });
+
+}
+
+
+/* =========================
+   OKUNDU / OKUNMADI
+========================= */
+
+function toggleRead(index) {
+
+    let suggestions =
+        JSON.parse(
+            localStorage.getItem(
+                "venyx_suggestions"
+            ) || "[]"
+        );
+
+    if (!suggestions[index]) return;
+
+    suggestions[index].read =
+        !suggestions[index].read;
+
+    localStorage.setItem(
+        "venyx_suggestions",
+        JSON.stringify(suggestions)
+    );
+
+    loadSuggestions();
+}
+
+
+/* =========================
+   SİL
+========================= */
+
+function deleteSuggestion(index) {
+
+    if (
+        !confirm(
+            "Bu öneriyi silmek istediğine emin misin?"
+        )
+    ) {
+        return;
+    }
+
+
+    let suggestions =
+        JSON.parse(
+            localStorage.getItem(
+                "venyx_suggestions"
+            ) || "[]"
+        );
+
+
+    suggestions.splice(index, 1);
+
+
+    localStorage.setItem(
+        "venyx_suggestions",
+        JSON.stringify(suggestions)
+    );
+
+
+    loadSuggestions();
+}
+
+
+/* =========================
+   GÜVENLİ METİN GÖSTERİMİ
+========================= */
+
+function escapeHTML(text) {
+
+    return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================
+   DAHA ÖNCE GİRİŞ YAPILDIYSA
+========================= */
+
+if (
+    sessionStorage.getItem(
+        "venyx_admin"
+    ) === "true"
+) {
+
+    showPanel();
+
+}
+
+</script>
+
+</body>
+</html>
+```

@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>VENYX | Bölüm</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background:
+
+    radial-gradient(
+        circle at 50% 0%,
+        rgba(160,20,60,.30),
+        transparent 45%
+    ),
+
+    linear-gradient(
+        135deg,
+        #0d0004,
+        #35000d,
+        #120005
+    );
+
+    color: #f7e9ec;
+
+    font-family:
+    "Cormorant Garamond",
+    serif;
+}
+
+
+/* ANA */
+
+.container {
+
+    width: 100%;
+
+    max-width: 850px;
+
+    margin: auto;
+
+    padding:
+    40px 25px 80px;
+}
+
+
+/* ÜST MENÜ */
+
+.top {
+
+    display: flex;
+
+    justify-content:
+    space-between;
+
+    align-items: center;
+
+    margin-bottom: 60px;
+}
+
+
+.top a {
+
+    color: #dcb4bc;
+
+    text-decoration: none;
+
+    font-family:
+    "Montserrat",
+    sans-serif;
+
+    font-size: 12px;
+
+    transition: .3s;
+}
+
+
+.top a:hover {
+
+    color: #ff8da5;
+}
+
+
+/* KİTAP BİLGİSİ */
+
+.book-name {
+
+    text-align: center;
+
+    font-family:
+    "Montserrat",
+    sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    color: #b98b96;
+
+    margin-bottom: 15px;
+
+    text-transform:
+    uppercase;
+}
+
+
+/* BÖLÜM BAŞLIĞI */
+
+.chapter-title {
+
+    text-align: center;
+
+    font-size: 58px;
+
+    font-weight: 500;
+
+    color: #fff0f2;
+
+    margin-bottom: 12px;
+}
+
+
+.author {
+
+    text-align: center;
+
+    font-family:
+    "Montserrat",
+    sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    color: #c69da7;
+
+    margin-bottom: 35px;
+}
+
+
+/* AYIRICI */
+
+.divider {
+
+    width: 70px;
+
+    height: 1px;
+
+    background: #ff7898;
+
+    margin:
+    0 auto 45px;
+
+    opacity: .7;
+}
+
+
+/* OKUNMA / BEĞENİ */
+
+.stats {
+
+    display: flex;
+
+    justify-content:
+    center;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin-bottom: 45px;
+}
+
+
+.stat {
+
+    font-family:
+    "Montserrat",
+    sans-serif;
+
+    font-size: 11px;
+
+    color: #a77b86;
+}
+
+
+/* BEĞEN */
+
+.like-button {
+
+    border:
+    1px solid
+    rgba(255,120,150,.4);
+
+    background:
+    rgba(150,15,50,.18);
+
+    color: #f5cbd3;
+
+    padding:
+    10px 18px;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    font-family:
+    "Montserrat",
+    sans-serif;
+
+    font-size: 11px;
+
+    transition: .3s;
+}
+
+
+.like-button:hover {
+
+    background:
+    rgba(180,20,60,.35);
+
+    transform:
+    translateY(-2px);
+}
+
+
+.like-button.liked {
+
+    background:
+    rgba(210,30,70,.45);
+
+    border-color:
+    #ff7898;
+
+    color: #ffb5c5;
+}
+
+
+/* BÖLÜM METNİ */
+
+.chapter-text {
+
+    font-size: 21px;
+
+    line-height: 2;
+
+    color: #ead4d8;
+
+    white-space: pre-wrap;
+
+    word-wrap: break-word;
+
+    margin-bottom: 70px;
+}
+
+
+/* BÖLÜM SONU */
+
+.end-line {
+
+    text-align: center;
+
+    color: #8e606b;
+
+    font-size: 25px;
+
+    margin-bottom: 40px;
+}
+
+
+/* GEÇİŞ BUTONLARI */
+
+.navigation {
+
+    display: flex;
+
+    justify-content:
+    space-between;
+
+    gap: 15px;
+
+    margin-bottom: 60px;
+}
+
+
+.navigation a {
+
+    flex: 1;
+
+    padding: 16px;
+
+    text-align: center;
+
+    border:
+    1px solid
+    rgba(255,120,150,.25);
+
+    border-radius: 15px;
+
+    background:
+    rgba(255,255,255,.025);
+
+    color: #e9cbd0;
+
+    text-decoration: none;
+
+    font-family:
+    "Montserrat",
+    sans-serif;
+
+    font-size: 11px;
+
+    transition: .3s;
+}
+
+
+.navigation a:hover {
+
+    background:
+    rgba(150,15,50,.2);
+
+    border-color:
+    rgba(255,120,150,.5);
+
+    transform:
+    translateY(-2px);
+}
+
+
+.navigation .disabled {
+
+    opacity: .25;
+
+    pointer-events: none;
+}
+
+
+/* YORUMLAR */
+
+.comments {
+
+    background:
+    rgba(45,0,13,.6);
+
+    border:
+    1px solid
+    rgba(255,110,140,.2);
+
+    border-radius: 25px;
+
+    padding: 30px;
+}
+
+
+.comments h2 {
+
+    font-size: 30px;
+
+    font-weight: 500;
+
+    margin-bottom: 20px;
+
+    color: #ffecef;
+}
+
+
+.comment-input {
+
+    width: 100%;
+
+    min-height: 110px;
+
+    resize: vertical;
+
+    padding: 15px;
+
+    background:
+    rgba(255,255,255,.04);
+
+    border:
+    1px solid
+    rgba(255,120,150,.25);
+
+    border-radius: 12px;
+
+    color: white;
+
+    outline: none;
+
+    font-family:
+    "Montserrat",
+    sans-serif;
+
+    font-size: 13px;
+
+    margin-bottom: 12px;
+}
+
+
+.comment-input:focus {
+
+    border-color:
+    #ff7898;
+}
+
+
+.comment-button {
+
+    padding:
+    11px 20px;
+
+    border:
+    1px solid
+    #ff819b;
+
+    border-radius: 30px;
+
+    background:
+    rgba(150,15,50,.25);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-family:
+    "Montserrat",
+    sans-serif;
+
+    font-size: 11px;
+
+    transition: .3s;
+}
+
+
+.comment-button:hover {
+
+    background:
+    rgba(180,20,60,.4);
+}
+
+
+.comment-list {
+
+    margin-top: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.comment {
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background:
+    rgba(255,255,255,.035);
+
+    border:
+    1px solid
+    rgba(255,110,140,.12);
+}
+
+
+.comment-text {
+
+    color: #e5cdd2;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* HATA */
+
+.not-found {
+
+    text-align: center;
+
+    padding: 100px 20px;
+
+    font-size: 30px;
+
+    color: #d9b4bb;
+}
+
+
+/* MOBİL */
+
+@media(max-width:600px) {
+
+    .container {
+
+        padding:
+        25px 18px 60px;
+    }
+
+
+    .top {
+
+        margin-bottom: 40px;
+    }
+
+
+    .chapter-title {
+
+        font-size: 43px;
+    }
+
+
+    .chapter-text {
+
+        font-size: 18px;
+
+        line-height: 1.9;
+    }
+
+
+    .navigation {
+
+        flex-direction:
+        column;
+    }
+
+
+    .stats {
+
+        flex-wrap: wrap;
+    }
+
+
+    .comments {
+
+        padding: 22px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<!-- ÜST -->
+
+<div class="top">
+
+<a href="book.html">
+
+← Kitaba Dön
+
+</a>
+
+
+<a href="index.html">
+
+VENYX
+
+</a>
+
+</div>
+
+
+<!-- BÖLÜM -->
+
+<main id="chapterArea">
+
+</main>
+
+
+</div>
+
+
+<script>
+
+
+/* =====================================
+   BÖLÜM NUMARASINI URL'DEN AL
+===================================== */
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+const chapterNumber =
+    params.get("number");
+
+
+/* =====================================
+   BÖLÜMÜ BUL
+===================================== */
+
+const chapterData =
+    localStorage.getItem(
+        "venyx_chapter_" +
+        chapterNumber
+    );
+
+
+const area =
+    document.getElementById(
+        "chapterArea"
+    );
+
+
+/* =====================================
+   BÖLÜM YOKSA
+===================================== */
+
+if (!chapterData) {
+
+    area.innerHTML = `
+
+        <div class="not-found">
+
+            Bu bölüm bulunamadı.
+
+        </div>
+
+    `;
+
+}
+
+
+/* =====================================
+   BÖLÜM VARSA
+===================================== */
+
+else {
+
+
+    const chapter =
+        JSON.parse(chapterData);
+
+
+    /* OKUNMA SAYISI */
+
+    const viewKey =
+        "venyx_views_" +
+        chapter.number;
+
+
+    let views =
+        Number(
+            localStorage.getItem(
+                viewKey
+            )
+        ) || 0;
+
+
+    views++;
+
+
+    localStorage.setItem(
+        viewKey,
+        views
+    );
+
+
+    /* BEĞENİ */
+
+    const likeKey =
+        "venyx_likes_" +
+        chapter.number;
+
+
+    let likes =
+        Number(
+            localStorage.getItem(
+                likeKey
+            )
+        ) || 0;
+
+
+    /* YORUMLAR */
+
+    const commentKey =
+        "venyx_comments_" +
+        chapter.number;
+
+
+    let comments =
+        JSON.parse(
+            localStorage.getItem(
+                commentKey
+            )
+        ) || [];
+
+
+    /* HTML */
+
+    area.innerHTML = `
+
+        <div class="book-name">
+
+            GÖREV: KAROLG
+
+        </div>
+
+
+        <h1 class="chapter-title">
+
+            ${escapeHTML(
+                chapter.title
+            )}
+
+        </h1>
+
+
+        <div class="author">
+
+            VENÜS
+
+        </div>
+
+
+        <div class="divider"></div>
+
+
+        <div class="stats">
+
+            <span
+            class="stat">
+
+                👀
+                <span id="views">
+
+                    ${views}
+
+                </span>
+
+                okunma
+
+            </span>
+
+
+            <button
+            class="like-button"
+            id="likeButton">
+
+                ❤️
+                <span id="likes">
+
+                    ${likes}
+
+                </span>
+
+                Beğen
+
+            </button>
+
+        </div>
+
+
+        <div class="chapter-text">
+
+${escapeHTML(
+    chapter.text
+)}
+
+        </div>
+
+
+        <div class="end-line">
+
+            ✦ ✦ ✦
+
+        </div>
+
+
+        <div class="navigation">
+
+            <a
+            id="previousButton"
+            href="#">
+
+                ← Önceki Bölüm
+
+            </a>
+
+
+            <a
+            href="book.html">
+
+                📚 Bölümler
+
+            </a>
+
+
+            <a
+            id="nextButton"
+            href="#">
+
+                Sonraki Bölüm →
+
+            </a>
+
+        </div>
+
+
+        <section class="comments">
+
+            <h2>
+
+                Yorumlar
+
+            </h2>
+
+
+            <textarea
+            id="commentInput"
+            class="comment-input"
+            placeholder="Bu bölüm hakkında ne düşünüyorsun?">
+            </textarea>
+
+
+            <button
+            class="comment-button"
+            id="commentButton">
+
+                YORUM YAP
+
+            </button>
+
+
+            <div
+            class="comment-list"
+            id="commentList">
+
+            </div>
+
+        </section>
+
+    `;
+
+
+    /* =================================
+       BEĞENİ
+    ================================= */
+
+    const likeButton =
+        document.getElementById(
+            "likeButton"
+        );
+
+
+    const likesText =
+        document.getElementById(
+            "likes"
+        );
+
+
+    let userLiked =
+        localStorage.getItem(
+            "venyx_liked_" +
+            chapter.number
+        ) === "true";
+
+
+    if (userLiked) {
+
+        likeButton.classList.add(
+            "liked"
+        );
+
+    }
+
+
+    likeButton.onclick =
+    function() {
+
+
+        if (userLiked) {
+
+            likes--;
+
+            userLiked = false;
+
+            localStorage.removeItem(
+                "venyx_liked_" +
+                chapter.number
+            );
+
+        }
+
+        else {
+
+            likes++;
+
+            userLiked = true;
+
+            localStorage.setItem(
+                "venyx_liked_" +
+                chapter.number,
+                "true"
+            );
+
+        }
+
+
+        localStorage.setItem(
+            likeKey,
+            likes
+        );
+
+
+        likesText.textContent =
+            likes;
+
+
+        likeButton.classList.toggle(
+            "liked",
+            userLiked
+        );
+
+    };
+
+
+    /* =================================
+       YORUMLARI GÖSTER
+    ================================= */
+
+    function showComments() {
+
+        const list =
+            document.getElementById(
+                "commentList"
+            );
+
+
+        list.innerHTML = "";
+
+
+        comments.forEach(
+            function(comment) {
+
+
+                const div =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                div.className =
+                    "comment";
+
+
+                const text =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                text.className =
+                    "comment-text";
+
+
+                text.textContent =
+                    comment;
+
+
+                div.appendChild(
+                    text
+                );
+
+
+                list.appendChild(
+                    div
+                );
+
+            }
+        );
+
+    }
+
+
+    showComments();
+
+
+    /* =================================
+       YORUM EKLE
+    ================================= */
+
+    document.getElementById(
+        "commentButton"
+    ).onclick =
+    function() {
+
+
+        const input =
+            document.getElementById(
+                "commentInput"
+            );
+
+
+        const text =
+            input.value.trim();
+
+
+        if (!text) {
+
+            return;
+
+        }
+
+
+        comments.push(
+            text
+        );
+
+
+        localStorage.setItem(
+            commentKey,
+            JSON.stringify(
+                comments
+            )
+        );
+
+
+        input.value = "";
+
+
+        showComments();
+
+    };
+
+
+    /* =================================
+       ÖNCEKİ / SONRAKİ
+    ================================= */
+
+    const previous =
+        document.getElementById(
+            "previousButton"
+        );
+
+
+    const next =
+        document.getElementById(
+            "nextButton"
+        );
+
+
+    const current =
+        Number(
+            chapter.number
+        );
+
+
+    /* ÖNCEKİ */
+
+    if (current > 1) {
+
+        previous.href =
+            "chapter.html?number="
+            +
+            (current - 1);
+
+    }
+
+    else {
+
+        previous.classList.add(
+            "disabled"
+        );
+
+    }
+
+
+    /* SONRAKİ */
+
+    const nextData =
+        localStorage.getItem(
+            "venyx_chapter_" +
+            (current + 1)
+        );
+
+
+    if (
+        nextData
+        &&
+        JSON.parse(nextData).published
+        === true
+    ) {
+
+        next.href =
+            "chapter.html?number="
+            +
+            (current + 1);
+
+    }
+
+    else {
+
+        next.classList.add(
+            "disabled"
+        );
+
+    }
+
+}
+
+
+/* =====================================
+   HTML GÜVENLİĞİ
+===================================== */
+
+function escapeHTML(text) {
+
+    return String(text)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+</script>
+
+
+</body>
+
+</html>

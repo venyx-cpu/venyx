@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VENYX | Finans</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(
+                    circle at 50% 30%,
+                    rgba(150, 20, 55, 0.35),
+                    transparent 55%
+                ),
+                linear-gradient(
+                    135deg,
+                    #100004,
+                    #39000e,
+                    #170005
+                );
+
+            color: white;
+            font-family: "Cormorant Garamond", serif;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 40px 20px;
+        }
+
+        .finance-container {
+            width: 100%;
+            max-width: 650px;
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 20px;
+
+            color: #f8dfe2;
+            text-decoration: none;
+
+            font-family: "Montserrat", sans-serif;
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+        .back:hover {
+            color: #ff8fa5;
+        }
+
+        .finance-box {
+            padding: 40px;
+
+            background: rgba(50, 0, 15, 0.72);
+
+            border: 1px solid rgba(255, 110, 140, 0.35);
+            border-radius: 30px;
+
+            box-shadow:
+                0 0 40px rgba(120, 10, 40, 0.25);
+
+            backdrop-filter: blur(15px);
+        }
+
+        h1 {
+            font-size: 58px;
+            font-weight: 500;
+
+            color: #fff0f1;
+
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-family: "Montserrat", sans-serif;
+
+            color: #d9aeb7;
+            font-size: 14px;
+
+            margin-bottom: 35px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+
+            font-family: "Montserrat", sans-serif;
+            font-size: 13px;
+            letter-spacing: 1px;
+
+            color: #e6c2c8;
+
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+
+            padding: 15px 17px;
+
+            background: rgba(255, 255, 255, 0.04);
+
+            border: 1px solid rgba(255, 130, 150, 0.35);
+            border-radius: 12px;
+
+            color: white;
+
+            font-family: "Montserrat", sans-serif;
+            font-size: 16px;
+
+            outline: none;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        input:focus {
+            border-color: #ff7898;
+
+            box-shadow:
+                0 0 15px rgba(255, 80, 110, 0.2);
+        }
+
+        button {
+            width: 100%;
+
+            margin-top: 10px;
+            padding: 16px;
+
+            border: 1px solid #ff809a;
+            border-radius: 30px;
+
+            background: rgba(150, 15, 50, 0.25);
+
+            color: white;
+
+            font-family: "Cormorant Garamond", serif;
+            font-size: 21px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+
+            background: rgba(180, 20, 60, 0.35);
+
+            box-shadow:
+                0 0 25px rgba(255, 70, 100, 0.3);
+        }
+
+        .result {
+            margin-top: 30px;
+
+            padding: 25px;
+
+            border-radius: 18px;
+
+            background: rgba(255, 255, 255, 0.035);
+
+            border: 1px solid rgba(255, 110, 140, 0.2);
+
+            text-align: center;
+        }
+
+        .result-title {
+            font-family: "Montserrat", sans-serif;
+
+            font-size: 12px;
+            letter-spacing: 3px;
+
+            color: #cfa2ac;
+
+            margin-bottom: 8px;
+        }
+
+        #balance {
+            font-size: 42px;
+
+            color: #ff9aad;
+
+            text-shadow:
+                0 0 15px rgba(255, 90, 120, 0.3);
+        }
+
+        @media (max-width: 600px) {
+            .finance-box {
+                padding: 30px 22px;
+            }
+
+            h1 {
+                font-size: 45px;
+            }
+
+            #balance {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="finance-container">
+
+        <a href="index.html" class="back">
+            ← Ana Sayfaya Dön
+        </a>
+
+        <div class="finance-box">
+
+            <h1>Finance</h1>
+
+            <p class="subtitle">
+                Gelir ve giderlerini gir. VENYX senin için hesaplasın.
+            </p>
+
+            <div class="input-group">
+
+                <label for="income">
+                    💰 GELİR
+                </label>
+
+                <input
+                    type="number"
+                    id="income"
+                    placeholder="Örn. 5000"
+                    min="0"
+                >
+
+            </div>
+
+            <div class="input-group">
+
+                <label for="expense">
+                    📉 GİDER
+                </label>
+
+                <input
+                    type="number"
+                    id="expense"
+                    placeholder="Örn. 2500"
+                    min="0"
+                >
+
+            </div>
+
+            <button type="button" onclick="calculateFinance()">
+                HESAPLA ✦
+            </button>
+
+            <div class="result">
+
+                <div class="result-title">
+                    NET BAKİYE
+                </div>
+
+                <div id="balance">
+                    0 ₺
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        function calculateFinance() {
+            const income =
+                Number(document.getElementById("income").value) || 0;
+
+            const expense =
+                Number(document.getElementById("expense").value) || 0;
+
+            const balance = income - expense;
+
+            document.getElementById("balance").textContent =
+                balance.toLocaleString("tr-TR") + " ₺";
+        }
+    </script>
+
+</body>
+</html>

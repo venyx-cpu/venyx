@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VENYX | Görev: KAROLG</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            rgba(160,20,60,.35),
+            transparent 50%
+        ),
+        radial-gradient(
+            circle at 10% 90%,
+            rgba(100,10,40,.25),
+            transparent 45%
+        ),
+        linear-gradient(
+            135deg,
+            #0d0004,
+            #35000d,
+            #120005
+        );
+
+    color: white;
+    font-family: "Cormorant Garamond", serif;
+    padding: 40px 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.back {
+    display: inline-block;
+    margin-bottom: 25px;
+    color: #f6dfe3;
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+}
+
+.back:hover {
+    color: #ff8da5;
+}
+
+/* KİTAP ALANI */
+
+.book-header {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 50px;
+    align-items: center;
+
+    padding: 45px;
+
+    background: rgba(45,0,13,.72);
+
+    border: 1px solid rgba(255,110,140,.28);
+
+    border-radius: 30px;
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 0 50px rgba(120,10,40,.22);
+}
+
+/* KAPAK */
+
+.book-cover {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255,130,150,.35);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.5);
+}
+
+.book-cover img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+/* BİLGİLER */
+
+.book-info h1 {
+    font-size: 64px;
+    font-weight: 500;
+    color: #fff0f2;
+    margin-bottom: 10px;
+}
+
+.author {
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #cda1aa;
+    margin-bottom: 25px;
+}
+
+.description {
+    color: #e4c7cc;
+    font-size: 19px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+/* YAZAR GİRİŞİ */
+
+.author-button {
+    display: inline-block;
+
+    padding: 12px 25px;
+
+    border: 1px solid #ff819b;
+
+    border-radius: 30px;
+
+    background: rgba(150,15,50,.25);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    transition: .3s;
+}
+
+.author-button:hover {
+    background: rgba(180,20,60,.4);
+    transform: translateY(-2px);
+}
+
+/* BÖLÜMLER */
+
+.chapters {
+    margin-top: 35px;
+
+    padding: 40px;
+
+    background: rgba(45,0,13,.65);
+
+    border: 1px solid rgba(255,110,140,.25);
+
+    border-radius: 30px;
+
+    backdrop-filter: blur(15px);
+}
+
+.chapters-title {
+    font-size: 38px;
+    font-weight: 500;
+    color: #fff0f2;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    color: #c59da6;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+.chapter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.chapter {
+    display: flex;
+    align-items: center;
+
+    padding: 20px 22px;
+
+    border-radius: 15px;
+
+    background: rgba(255,255,255,.035);
+
+    border: 1px solid rgba(255,110,140,.16);
+
+    text-decoration: none;
+
+    color: white;
+
+    transition: .3s;
+}
+
+.chapter:hover {
+    background: rgba(150,15,50,.18);
+
+    border-color: rgba(255,120,145,.4);
+
+    transform: translateX(5px);
+}
+
+.number {
+    min-width: 80px;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 11px;
+
+    color: #b98994;
+
+    letter-spacing: 1px;
+}
+
+.chapter-name {
+    flex: 1;
+
+    font-size: 21px;
+
+    color: #f4dfe2;
+}
+
+.arrow {
+    color: #ff8da5;
+    font-size: 20px;
+}
+
+.empty {
+    text-align: center;
+
+    padding: 30px;
+
+    color: #b9959d;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+}
+
+/* MOBİL */
+
+@media(max-width:750px) {
+
+    body {
+        padding: 25px 15px;
+    }
+
+    .book-header {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 30px 22px;
+        text-align: center;
+    }
+
+    .book-cover {
+        width: 200px;
+        margin: auto;
+    }
+
+    .book-info h1 {
+        font-size: 48px;
+    }
+
+    .description {
+        font-size: 17px;
+    }
+
+    .chapters {
+        padding: 28px 20px;
+    }
+}
+
+@media(max-width:450px) {
+
+    .book-cover {
+        width: 170px;
+    }
+
+    .book-info h1 {
+        font-size: 40px;
+    }
+
+    .chapter {
+        padding: 17px;
+    }
+
+    .number {
+        min-width: 60px;
+        font-size: 10px;
+    }
+
+    .chapter-name {
+        font-size: 18px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="index.html" class="back">
+← Ana Sayfaya Dön
+</a>
+
+<section class="book-header">
+
+<!-- KİTAP KAPAĞI -->
+
+<div class="book-cover">
+
+    <img
+        src="gorev-kapagi.png"
+        alt="Görev: KAROLG kitap kapağı">
+
+</div>
+
+<!-- KİTAP BİLGİLERİ -->
+
+<div class="book-info">
+
+<h1>
+Görev: KAROLG
+</h1>
+
+<div class="author">
+VENÜS
+</div>
+
+<p class="description">
+
+Görevi için Rusya’ya giden No7,
+herkesi kontrolü altına alıp silahı
+ve ona ait tüm bilgileri yok etmeye
+her zamankinden daha yakındır.
+
+Ancak attığı her adım, onu kendi
+hayatını sorgulayacağı olayların
+içine sürükler.
+
+Gizlenen gerçekler birer birer
+ortaya çıkarken, sırlar artık
+saklanamaz hâle gelir.
+
+Bu karanlık bataklıktan çıkabilmesi
+için yanında yalnızca iki kişi vardır:
+No4 ve No5.
+
+</p>
+
+<a
+href="login.html"
+class="author-button">
+
+✦ YAZAR GİRİŞİ
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- BÖLÜMLER -->
+
+<section class="chapters">
+
+<h2 class="chapters-title">
+Bölümler
+</h2>
+
+<p class="subtitle">
+KİTABIN BÖLÜMLERİ
+</p>
+
+<div
+id="chapterList"
+class="chapter-list">
+</div>
+
+<div
+id="emptyMessage"
+class="empty">
+
+Henüz yayınlanmış bölüm yok.
+
+</div>
+
+</section>
+
+</div>
+
+
+<script>
+
+function loadChapters() {
+
+    const list =
+        document.getElementById("chapterList");
+
+    const empty =
+        document.getElementById("emptyMessage");
+
+    list.innerHTML = "";
+
+    let chapters = [];
+
+    for (let i = 1; i <= 100; i++) {
+
+        const data =
+            localStorage.getItem(
+                "venyx_chapter_" + i
+            );
+
+        if (!data) continue;
+
+        try {
+
+            const chapter =
+                JSON.parse(data);
+
+            if (chapter.published === true) {
+
+                chapters.push(chapter);
+
+            }
+
+        } catch(error) {
+
+            console.log(
+                "Bölüm okunamadı:",
+                i
+            );
+
+        }
+    }
+
+    chapters.sort(function(a,b) {
+
+        return Number(a.number)
+             - Number(b.number);
+
+    });
+
+    if (chapters.length === 0) {
+
+        empty.style.display = "block";
+
+        return;
+    }
+
+    empty.style.display = "none";
+
+    chapters.forEach(function(chapter) {
+
+        const link =
+            document.createElement("a");
+
+        link.className = "chapter";
+
+        link.href =
+            "chapter.html?number=" +
+            encodeURIComponent(
+                chapter.number
+            );
+
+        const number =
+            document.createElement("span");
+
+        number.className = "number";
+
+        number.textContent =
+            "BÖLÜM " +
+            String(
+                chapter.number
+            ).padStart(2,"0");
+
+        const title =
+            document.createElement("span");
+
+        title.className =
+            "chapter-name";
+
+        title.textContent =
+            chapter.title;
+
+        const arrow =
+            document.createElement("span");
+
+        arrow.className = "arrow";
+
+        arrow.textContent = "→";
+
+        link.appendChild(number);
+
+        link.appendChild(title);
+
+        link.appendChild(arrow);
+
+        list.appendChild(link);
+
+    });
+}
+
+loadChapters();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #1b020d;
+    color: white;
+}
+
+
+/* ÜST MENÜ */
+
+header {
+    height: 80px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 8%;
+
+    background: #280512;
+
+    border-bottom: 1px solid #57132c;
+}
+
+header h1 {
+    font-size: 24px;
+    letter-spacing: 3px;
+    color: #f0a0b9;
+}
+
+nav a {
+    color: #d99aaa;
+    text-decoration: none;
+
+    margin-left: 30px;
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ff8fac;
+}
+
+
+/* ANA EKRAN */
+
+.hero {
+    min-height: 85vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 40px 20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #4a0c24 0%,
+            #2c0614 45%,
+            #1b020d 80%
+        );
+}
+
+.hero h2 {
+    font-size: 70px;
+
+    max-width: 900px;
+
+    line-height: 1.05;
+
+    margin-bottom: 25px;
+}
+
+.hero p {
+    max-width: 650px;
+
+    color: #c98b9e;
+
+    font-size: 19px;
+
+    line-height: 1.6;
+}
+
+
+/* BUTON */
+
+button {
+    margin-top: 35px;
+
+    padding: 15px 35px;
+
+    background: #7d2142;
+
+    color: white;
+
+    border: 1px solid #b94c70;
+
+    border-radius: 30px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 20px #7d214233;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+
+    background: #a7355a;
+
+    box-shadow: 0 0 30px #b94c7066;
+}
+
+
+/* BÖLÜMLER */
+
+section {
+    padding: 100px 10%;
+}
+
+section h2 {
+    font-size: 40px;
+
+    margin-bottom: 25px;
+
+    color: #e9a0b7;
+}
+
+
+/* PROJELER */
+
+.proje {
+    background: #2b0615;
+
+    border: 1px solid #58152f;
+
+    padding: 30px;
+
+    margin-top: 20px;
+
+    border-radius: 15px;
+
+    transition: 0.3s;
+}
+
+.proje:hover {
+    transform: translateY(-6px);
+
+    border-color: #a7355a;
+
+    box-shadow: 0 10px 30px #7d214222;
+}
+
+.proje h3 {
+    font-size: 24px;
+
+    color: #f5d5df;
+}
+
+.proje p {
+    color: #c58a9d;
+
+    margin-top: 10px;
+}
+
+
+/* KİTAP KAPAĞI */
+
+.book-cover {
+    width: 100%;
+
+    aspect-ratio: 2 / 3;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    background: #280512;
+
+    border: 1px solid #b94c70;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.45);
+}
+
+.book-cover img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+
+    padding: 40px;
+
+    color: #9b6477;
+
+    border-top: 1px solid #57132c;
+
+    background: #16010a;
+}
+
+
+/* TELEFON */
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 0 5%;
+    }
+
+    nav a {
+        margin-left: 12px;
+
+        font-size: 13px;
+    }
+
+    .hero h2 {
+        font-size: 48px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    section {
+        padding: 70px 7%;
+    }
+
+}

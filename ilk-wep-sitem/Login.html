@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VENYX | Yazar Girişi</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #4a0c24,
+                    #2c0614 50%,
+                    #100004
+                );
+
+            color: white;
+            font-family: Arial, sans-serif;
+
+            padding: 20px;
+        }
+
+        .login-box {
+            width: 100%;
+            max-width: 420px;
+
+            padding: 45px 35px;
+
+            background: rgba(45, 0, 13, 0.85);
+
+            border: 1px solid rgba(255, 110, 140, 0.35);
+
+            border-radius: 25px;
+
+            text-align: center;
+
+            box-shadow:
+                0 0 50px rgba(120, 10, 40, 0.3);
+        }
+
+        h1 {
+            font-size: 42px;
+            color: #f5c1ce;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #b9959d;
+            margin-bottom: 30px;
+        }
+
+        input {
+            width: 100%;
+
+            padding: 15px;
+
+            background: rgba(255,255,255,0.05);
+
+            border: 1px solid #6d1b39;
+
+            border-radius: 12px;
+
+            color: white;
+
+            outline: none;
+
+            margin-bottom: 15px;
+
+            font-size: 16px;
+        }
+
+        input:focus {
+            border-color: #ff7898;
+
+            box-shadow:
+                0 0 15px rgba(255,80,110,0.2);
+        }
+
+        button {
+            width: 100%;
+
+            padding: 15px;
+
+            border: 1px solid #ff819b;
+
+            border-radius: 30px;
+
+            background: #7d2142;
+
+            color: white;
+
+            cursor: pointer;
+
+            font-size: 15px;
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #a7355a;
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 0 25px rgba(255,70,100,0.25);
+        }
+
+        .error {
+            color: #ff8fa8;
+
+            margin-top: 15px;
+
+            display: none;
+        }
+
+        .back {
+            display: inline-block;
+
+            margin-top: 25px;
+
+            color: #cfa0aa;
+
+            text-decoration: none;
+
+            font-size: 13px;
+        }
+
+        .back:hover {
+            color: #ff8da5;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="login-box">
+
+    <h1>VENYX</h1>
+
+    <p class="subtitle">
+        Yazar Paneli
+    </p>
+
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Yazar şifresi"
+    >
+
+
+    <button onclick="login()">
+        GİRİŞ YAP ✦
+    </button>
+
+
+    <p
+        class="error"
+        id="error"
+    >
+        Şifre yanlış.
+    </p>
+
+
+    <a
+        href="book.html"
+        class="back"
+    >
+        ← Kitabıma Dön
+    </a>
+
+</div>
+
+
+<script>
+
+function login() {
+
+    const password =
+        document.getElementById("password").value;
+
+    const error =
+        document.getElementById("error");
+
+
+    if (password === "VENÜS391") {
+
+        localStorage.setItem(
+            "venyx_author",
+            "true"
+        );
+
+        /*
+         * login.html ile editor.html
+         * aynı klasörde olmalı.
+         */
+
+        window.location.href = "./editor.html";
+
+    }
+
+    else {
+
+        error.style.display = "block";
+
+        error.textContent =
+            "Şifre yanlış.";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
